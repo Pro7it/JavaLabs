@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create employee</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+
+    <style>
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+        }
+    </style>
+</head>
+<body class="template-body">
+    <div class="back-home" style="top: 8px;right: 16px">
+        <a href="/home" class="link-button" style="width: 100%;">Back home</a>
+    </div>
+    <div class="template-container">
+        <h2>Create employee</h2>
+        <form th:action="@{/createEmployee}" th:object="${employee}" method="POST">
+            <!-- <label for="employee_id">Name:</label>
+            <input type="number" th:field="*{employee_id}" required/><br/> -->
+            
+            <label for="employee_position">Position:</label>
+            <!-- <input type="text" th:field="*{employee_position}" required/> <br/> -->
+             <select th:field="*{employeePosition}" required>
+                <option value="Chef">Chef</option>`
+                <option value="Waiter">Waiter</option>
+                <option value="Delivery man">Delivery man</option>
+             </select>
+            
+            <label for="employee_salary">Salary:</label>
+            <input type="number" th:field="*{employeeSalary}" required min="0" max="1000"/> <br/>
+        
+            <button type="submit">Create</button>
+    </form>
+    
+    <p th:if="${param.success}" style="margin-bottom: 0;">Employee successfully created!</p>
+</div>
+
+</body>
+</html>
