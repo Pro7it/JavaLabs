@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" th:href="@{/style.css}">
+    <style>
+        .fade-in {
+            opacity: 0;
+            transition: opacity 2s ease-in-out;
+        }
+
+        .fade-in.show {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="template-body" style="background-color: black;">
+
+<script>
+    setTimeout(function() {
+        const element = document.getElementById('element');
+        element.classList.add('show');
+    }, 100);
+</script>
+
+<h1 style="color: white;" id="element" class="fade-in">What have I pressed..?</h1>
+
+<div class="back-home" style="top: 8px; right: 16px;">
+    <a href="/home" class="link-button" style="width: 100%;">Back home</a>
+</div>
+
+</body>
+</html>
