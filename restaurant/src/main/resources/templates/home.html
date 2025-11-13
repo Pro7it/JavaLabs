@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin Page</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+    <div class="grid-container">
+        <div class="left-div">
+            <div class="cell">
+                <div class="header-balance">
+                    <h1>Welcome back, admin!</h1>
+                    <div class="balance-box">
+                        Balance: <span th:text="${balance} + ' ₴'">₴</span>
+                    </div>
+                </div>
+                <p>It is a simple menu in order to work with my restaurant with a lot of options avaliable</p>                
+            </div>
+            <div class="cell-game">
+                <div class="wrapper">
+                    <ul class="cards">
+                        <li class="card">
+                            <div class="view front-view">
+                                <span class="material-icons">?</span>
+                            </div>
+                            <div class="view back-view">
+                                <img th:src="@{/card-game/img-1.png}" alt="">
+                            </div>
+                        </li>
+                        <li class="card">
+                            <div class="view front-view">
+                                <span class="material-icons">?</span>
+                            </div>
+                            <div class="view back-view">
+                                <img th:src="@{/card-game/img-2.png}" alt="">
+                            </div>
+                        </li>
+                        <li class="card">
+                            <div class="view front-view">
+                                <span class="material-icons">?</span>
+                            </div>
+                            <div class="view back-view">
+                                <img th:src="@{/card-game/img-3.png}" alt="">
+                            </div>
+                        </li>
+                        <li class="card">
+                            <div class="view front-view">
+                                <span class="material-icons">?</span>
+                            </div>
+                            <div class="view back-view">
+                                <img th:src="@{/card-game/img-6.png}" alt="">
+                            </div>
+                        </li>
+                        <li class="card">
+                            <div class="view front-view">
+                                <span class="material-icons">?</span>
+                            </div>
+                            <div class="view back-view">
+                                <img th:src="@{/card-game/img-1.png}" alt="">
+                            </div>
+                        </li>
+                        <li class="card">
+                            <div class="view front-view">
+                                <span class="material-icons">?</span>
+                            </div>
+                            <div class="view back-view">
+                                <img th:src="@{/card-game/img-2.png}" alt="">
+                            </div>
+                        </li>
+                        <li class="card">
+                            <div class="view front-view">
+                                <span class="material-icons">?</span>
+                            </div>
+                            <div class="view back-view">
+                                <img th:src="@{/card-game/img-3.png}" alt="">
+                            </div>
+                        </li>
+                        <li class="card">
+                            <div class="view front-view">
+                                <span class="material-icons">?</span>
+                            </div>
+                            <div class="view back-view">
+                                <img th:src="@{/card-game/img-6.png}" alt="">
+                            </div>
+                        </li>
+                        <li class="card">
+                            <div class="view front-view">
+                                <span class="material-icons">?</span>
+                            </div>
+                            <div class="view back-view">
+                                <img th:src="@{/card-game/img-4.png}" alt="">
+                            </div>
+                        </li>
+                        <li class="card">
+                            <div class="view front-view">
+                                <span class="material-icons">?</span>
+                            </div>
+                            <div class="view back-view">
+                                <img th:src="@{/card-game/img-4.png}" alt="">
+                            </div>
+                        </li>
+                        <li class="card">
+                            <div class="view front-view">
+                                <span class="material-icons">?</span>
+                            </div>
+                            <div class="view back-view">
+                                <img th:src="@{/card-game/img-5.png}" alt="">
+                            </div>
+                        </li>
+                        <li class="card">
+                            <div class="view front-view">
+                                <span class="material-icons">?</span>
+                            </div>
+                            <div class="view back-view">
+                                <img th:src="@{/card-game/img-5.png}" alt="">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <script th:src="@{/card-game/script.js}"></script>
+        </div>
+        <div class="right-div">
+            <div class="cell">
+                <div class="button-cell">
+                    <a href="/createEmployee" class="link-button">Create employee</a>
+                    <a href="/employees" class="link-button">Show employees</a>
+                    <a href="/menu" class="link-button">Create order</a>
+                    <a href="/logout" class="link-button">Log out</a>
+                </div>
+                <div class="order-list">
+                    <ul>
+                        <li th:each="order : ${orders}">
+                            <a class="link-button-order" th:href="@{'/order/' + ${order.id}}">
+                                №<span th:text="${order.id}"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</body>
+<script th:if="${alert}" th:inline="javascript">
+    alert('[[${alert}]]');
+</script>
+</html>
